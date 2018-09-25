@@ -7,6 +7,8 @@ import * as ts from 'typescript';
 interface TokenItem {
     type: number;
     value: string;
+    startPos: number;
+    endPos: number;
 }
 
 const scanner = ts.createScanner(ts.ScriptTarget.Latest, true);
@@ -20,12 +22,18 @@ function sourceCodeToTokenList(text: string) {
     const tokenList: Array<TokenItem> = [];
     let token = scanner.scan();
     while (token != ts.SyntaxKind.EndOfFileToken) {
-        const text = scanner.getTokenText();
-        tokenList.push( {
-            type: token,
-            value: text,
-        });
+        const value = scanner.getTokenText();
+        const type = token;
+        const startPos = scanner.getStartPos();
         token = scanner.scan();
+        const endPos = scanner.getStartPos();
+    
+        tokenList.push({
+            type,
+            startPos,
+            endPos,
+            value,
+        });
     }
     return tokenList;
 }
@@ -41,5 +49,5 @@ sourceCodeToTokenList(`let PI: number = 3.1415926;`).forEach(token => {
 console.log('\n');
 
 sourceCodeToTokenList(`interface Node<T> {left: Node<T>|null; right: Node<T>|null; value: T;}`).forEach(token => {
-    console.log(syntaxKindToName(token.type), token.value);
+    console.log(syntaxKindToName(token.type), token.value, token.startPos, token.endPos);
 });
