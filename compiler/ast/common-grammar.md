@@ -17,9 +17,34 @@ ImportDeclaration {
 }
 ```
 
-* `import { Module } form 'module_name'`
+* `import { Module, Module2 as NewModule2 } form 'module_name'`
 
-* `import { Module as NewModule } form 'module_name'`
+```
+ImportDeclaration {
+    importClause: ImportClause {
+        nameBindings: NamedImports {
+            elements: [
+                ImportSpecifier {
+                    name: Identifier {
+                        text: "Module"
+                    }
+                }
+                ImportSpecifier {
+                    propertyName: Identifier {
+                        text: "Module2"
+                    }
+                    name: Identifier {
+                        text: "NewModule2"
+                    }
+                }
+            ]
+       }
+   }
+   moduleSpecifier: StringLiteral {
+       text: "module_name"
+   }
+}
+```
 
 * `import Module as module from 'module_name'`
 
