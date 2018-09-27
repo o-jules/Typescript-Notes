@@ -4,64 +4,63 @@
 
 * `import Module from 'module_name'`
 
-```
-ImportDeclaration {
-   importClause: ImportClause {
-       name: Identifier {
+```typescript
+ImportDeclaration({
+   importClause: ImportClause({
+       name: Identifier({
            text: "Module"
-       }
-   }
-   moduleSpecifier: StringLiteral {
+       })
+   }),
+   moduleSpecifier: StringLiteral({
        text: "module_name"
-   }
-}
+   })
+})
 ```
 
 * `import * as Module from 'module_name'`
 
-```
-ImportDeclaration {
-    importClause: ImportClause {
-        nameBindings: NamespaceImport {
-            name: Identifier {
+```typescript
+ImportDeclaration({
+    importClause: ImportClause({
+        nameBindings: NamespaceImport({
+            name: Identifier({
                 text: "Module"
-            }
-        }
-    }
-
-    moduleSpecifier: StringLiteral {
+            })
+        })
+    }),
+    moduleSpecifier: StringLiteral({
         text: "module_name"
-    }
-}
+    })
+})
 ```
 
 * `import { Module, Module2 as NewModule2 } form 'module_name'`
 
-```
-ImportDeclaration {
-    importClause: ImportClause {
-        nameBindings: NamedImports {
+```typescript
+ImportDeclaration({
+    importClause: ImportClause({
+        nameBindings: NamedImports({
             elements: [
-                ImportSpecifier {
-                    name: Identifier {
+                ImportSpecifier({
+                    name: Identifier({
                         text: "Module"
-                    }
-                }
-                ImportSpecifier {
-                    propertyName: Identifier {
+                    })
+                }),
+                ImportSpecifier({
+                    propertyName: Identifier({
                         text: "Module2"
-                    }
-                    name: Identifier {
+                    }),
+                    name: Identifier({
                         text: "NewModule2"
-                    }
-                }
+                    })
+                })
             ]
-       }
-   }
-   moduleSpecifier: StringLiteral {
+       })
+   }),
+   moduleSpecifier: StringLiteral({
        text: "module_name"
-   }
-}
+   })
+})
 ```
 
 ## Variable delcartions
