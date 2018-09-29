@@ -1,6 +1,6 @@
 # Function
 
-* `function fun(id: number, name: string = 'anyone') {}`
+* `function fun(@log id: number, name: string = 'anyone') {}`
 
 ```typescript
 FunctionDeclaration({
@@ -11,6 +11,11 @@ FunctionDeclaration({
         Parameter({
             name: Identifier({ text: 'id' }),
             type: NumberKeyword,
+            decorators: [
+                Decorator({
+                    expression: Identifier({ text: 'log' })
+                })
+            ]
         }),
         Parameter({
             name: Identifier({ text: 'name' }),
