@@ -1,5 +1,5 @@
 
-// scanner, i.e. parser
+// scanner, i.e. tokenizer
 //
 
 import * as ts from 'typescript';
