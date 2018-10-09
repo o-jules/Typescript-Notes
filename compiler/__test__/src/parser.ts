@@ -9,9 +9,9 @@ function printSourceFile(node: ts.Node, depth: number = 0) {
 const fileName = 'main.ts';
 const sourceCode = `
 class Animal {
-    let name = '';
+    private name: string = '';
 
-    run() {
+    public run(): void {
         console.log(this.name + 'is runing');
     }
 }`;
